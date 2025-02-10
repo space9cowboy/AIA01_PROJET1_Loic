@@ -1,4 +1,5 @@
 from src.data.data_loader import DataLoader
+from config import DATA_PATH, RAW_DATA_PATH, PROCESSED_DATA_PATH
 import logging
 
 def setup_logging():
@@ -17,7 +18,7 @@ def main():
     logger = logging.getLogger(__name__)
 
     logger.info("Starting dataloading import")
-    data_loader = DataLoader()
+    data_loader = DataLoader(dataset_path=RAW_DATA_PATH)
     category_tree, items_prop_1, items_prop_2, events = data_loader.load_data()
     logger.info("Data loaded successfully")
     logger.info("Starting preprocessing")
