@@ -1,0 +1,48 @@
+# Ignorer les fichiers Python compilés
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorer les dossiers d'environnements virtuels
+venv/
+env/
+.virtualenv/
+
+# Fichiers de log et caches
+*.log
+logs/
+.cache/
+
+# Fichiers temporaires créés par Jupyter Notebook
+.ipynb_checkpoints/
+
+# Ignorer les fichiers de données brutes et intermédiaires
+data/raw/
+data/processed/
+
+# Fichiers CSV, JSON ou autres fichiers de données volumineux
+*.csv
+*.json
+*.parquet
+*.sqlite
+*.db
+
+# Dossiers spécifiques à VS Code
+.vscode/
+
+# Fichiers Kaggle API Key (ne pas partager publiquement)
+kaggle.json
+
+# Fichiers générés par Jupyter Notebook
+*.nbconvert.ipynb
+
+# Résultats de visualisations
+visualizations/
+*.png
+*.jpg
+*.jpeg
+
+# Ne prend pas en compte ce qu'il y a dans le dossier data
+data/*
+!data/.gitkeep
