@@ -18,15 +18,13 @@ def main():
     logger = logging.getLogger(__name__)
 
     logger.info("Starting dataloading import")
-    data_loader = DataLoader(dataset_path=RAW_DATA_PATH)
-    category_tree, items_prop_1, items_prop_2, events = data_loader.load_data()
+   
+    loader = DataLoader(dataset_path= RAW_DATA_PATH, datasets=['category_tree'])
+   
     logger.info("Data loaded successfully")
+    data = loader.load_data()
+    print(data['category_tree'].head())
     logger.info("Starting preprocessing")
-
-    print(items_prop_1.head())
-    print(items_prop_2.head())
-    print(category_tree.head())
-    print(events.head())
-
+    
 if __name__ == "__main__":
     main()
