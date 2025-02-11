@@ -1,4 +1,5 @@
 from src.data.data_loader import DataLoader
+from src.data.data_processing import DataProcessing
 from config import DATA_PATH, RAW_DATA_PATH, PROCESSED_DATA_PATH
 import logging
 
@@ -19,11 +20,16 @@ def main():
 
     logger.info("Starting dataloading import")
    
-    loader = DataLoader(dataset_path= RAW_DATA_PATH, datasets=['category_tree'])
-   
+    # loader = DataLoader(dataset_path= RAW_DATA_PATH, datasets=['category_tree'])
+    data_processing = DataProcessing(data=['items_prop_1'])
+    finaldf = data_processing.preprocess_data()
+    
+    for dataset_name, dataset in finaldf.items():
+        print(f"Dataset: {dataset_name}")
+        print(dataset.head())
+        print("\n")
     logger.info("Data loaded successfully")
-    data = loader.load_data()
-    print(data['category_tree'].head())
+    # print(finaldf.head())
     logger.info("Starting preprocessing")
     
 if __name__ == "__main__":
