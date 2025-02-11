@@ -1,6 +1,8 @@
 import pandas as pd
-import kaggle
 import os
+from kaggle.api.kaggle_api_extended import KaggleApi
+# from dotenv import load_dotenv
+# load_dotenv()
 
 class DataLoader:
     """
@@ -11,12 +13,14 @@ class DataLoader:
         Initialisation le chemin du dataset
         """
         self.dataset_path = dataset_path
+        self.api = KaggleApi()
+        self.api.authenticate()
     
     def download_data(self):
         """
         Télécharge les données du dataset ecommerce-dataset
         """
-        kaggle.api.dataset_download_files(
+        self.api.dataset_download_files(
             "retailrocket/ecommerce-dataset",
             path=self.dataset_path,
             unzip=True
@@ -39,10 +43,6 @@ class DataLoader:
             print(f"Error loading data: {e}")
             self.download_data()
 
-            category_tree = pd.read_csv(os.path.join(self.dataset_path, "category_tree.csv"))
-            items_prop_1 = pd.read_csv(os.path.join(self.dataset_path, "item_properties_part1.csv"))
-            items_prop_2 = pd.read_csv(os.path.join(self.dataset_path, "item_properties_part2.csv"))
-            events = pd.read_csv(os.path.join(self.dataset_path, "events.csv"))
-            
-            return category_tree, items_prop_1, items_prop_2, events
+            return self.load_data()
+           
         
