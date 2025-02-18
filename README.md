@@ -11,3 +11,8 @@ Installation des dépendances :
 ```bash
 pip install -r requirements.txt
 ```
+
+### Lancer le script :
+```bash
+python3 main.py
+```
