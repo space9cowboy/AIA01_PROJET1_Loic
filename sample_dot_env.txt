@@ -1,0 +1,5 @@
+KAGGLE_USERNAME = loicrabearivony
+KAGGLE_KEY = db8828f9f96700b76930ae9b6b8eff31
+DATA_PATH =data
+RAW_DATA =data/raw
+PROCESSED_DATA =data/processed 
